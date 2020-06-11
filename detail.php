@@ -507,9 +507,9 @@
 
     // Back URLs
     $preference->back_urls = [
-        "success" => $SERVER_URL . "/success",
-        "failure" => $SERVER_URL . "/failure",
-        "pending" => $SERVER_URL . "/pending"
+        "success" => $SERVER_URL . "/success.php",
+        "failure" => $SERVER_URL . "/failure.php",
+        "pending" => $SERVER_URL . "/pending.php"
     ];
 
     // Notification URL
@@ -617,7 +617,7 @@
                                         </h3>
                                     </div>
 
-                                    <form action="/sucess.php" method="GET">
+                                    <form action="/procesar-pago.php" method="GET">
                                         <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js" data-preference-id="<?php echo $preference->id; ?>" data-button-label="Pagar la compra">
                                         </script>
                                     </form>
