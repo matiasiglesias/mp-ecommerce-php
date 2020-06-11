@@ -467,32 +467,30 @@
 
     // Crea un ítem en la preferencia
     /** @var MercadoPago\Item $item */
-    $item = new MercadoPago\Item([
-        "title" => $_POST['title'],
-        "quantity" => 1, // Fixed como dice el examen. Sino debería ser $_POST['unit'];
-        "unit_price" => $_POST['price'],
-        "picture_url" => $SERVER_URL . '/' . $_POST['img'],
-        "id" => 1234, // Fixed
-        "currency_id" => 'ARS', // Fixed
-        "description" => "​Dispositivo móvil de Tienda e-commerce​", // Fixed
-        "external_reference" => "miglesias@guanacosoftware.com.ar", // Fixed
-    ]);
+    $item = new MercadoPago\Item();
+    $item->title = $_POST['title'];
+    $item->quantity = 1; // Fixed como dice el examen. Sino debería ser $_POST['unit'];
+    $item->unit_price = $_POST['price'];
+    $item->picture_url = $SERVER_URL . '/' . $_POST['img'];
+    $item->id = 1234; // Fixed
+    $item->currency_id = 'ARS'; // Fixed
+    $item->description = "​Dispositivo móvil de Tienda e-commerce​"; // Fixed
+    $item->external_reference = "miglesias@guanacosoftware.com.ar"; // Fixed
 
     // Creo el Payer
     /** @var MercadoPago\Payer $payer */
-    $payer = new MercadoPago\Payer([
-        "name" => "Lalo Landa",
-        "email" => "test_user_63274575@testuser.com",
-        "phone" => [
-            "area_code" =>  "11",
-            "number" => "22223333"
-        ],
-        "address" => [
-            "street_name" => "False",
-            "street_number" => "123",
-            "zip_code" => "1111",
-        ],
-    ]);
+    $payer = new MercadoPago\Payer();
+    $payer->name = "Lalo Landa";
+    $payer->email = "test_user_63274575@testuser.com";
+    $payer->phone = [
+        "area_code" =>  "11",
+        "number" => "22223333"
+    ];
+    $payer->address = [
+        "street_name" => "False",
+        "street_number" => "123",
+        "zip_code" => "1111",
+    ];
 
     /** @var MercadoPago\PaymentMethod $paymentMethod */
     $paymentMethod = new MercadoPago\PaymentMethod([
@@ -515,7 +513,7 @@
     // Notification URL
     $preference->notification_url = $SERVER_URL . "/notifications.php";
 
-    $preference->auto_return = "all";
+    $preference->auto_return = "approved";
 
     $preference->items = [$item];
     $preference->payer = $payer;
