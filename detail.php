@@ -512,6 +512,9 @@
         "pending" => $SERVER_URL . "/pending"
     ];
 
+    // Notification URL
+    $preference->notification_url = $SERVER_URL . "/notifications.php";
+
     $preference->auto_return = "all";
 
     $preference->items = [$item];
@@ -614,7 +617,7 @@
                                         </h3>
                                     </div>
 
-                                    <form action="/index.php" method="GET">
+                                    <form action="/sucess.php" method="GET">
                                         <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js" data-preference-id="<?php echo $preference->id; ?>" data-button-label="Pagar la compra">
                                         </script>
                                     </form>

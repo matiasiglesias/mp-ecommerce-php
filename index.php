@@ -476,59 +476,63 @@
             </div>
 
             <div id="result">
-                <?php switch ($_GET['collection_status']):
-                    case 'approved': ?>
-                        <h2>Tu pago ha sido aprobado</h2>
-                        <div class="width:60%">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <th>collection_id</th>
-                                        <td><?php echo $_GET['collection_id'] ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>collection_status</th>
-                                        <td><?php echo $_GET['collection_status'] ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>external_reference</th>
-                                        <td><?php echo $_GET['external_reference'] ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>payment_type</th>
-                                        <td><?php echo $_GET['payment_type'] ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>preference_id</th>
-                                        <td><?php echo $_GET['preference_id'] ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>site_id</th>
-                                        <td><?php echo $_GET['site_id'] ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>processing_mode</th>
-                                        <td><?php echo $_GET['processing_mode'] ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>merchant_account_id</th>
-                                        <td><?php echo $_GET['merchant_account_id'] ?></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <?php var_dump($_GET) ?>
+                <?php die(var_dump($_GET)) ?>
 
-                        </div>
-                        <?php break; ?>
-                    <?php
-                    case 'pending': ?>
-                        <h2>Tu pago está pendiente</h2>
-                        <?php break; ?>
-                    <?php
-                    case 'failure': ?>
-                        <h2>Ups... algo pasó con tu pago</h2>
-                        <?php break; ?>
-                <?php endswitch; ?>
+                <?php if (isset($_GET['collection_status'])) { ?>
+                    <?php switch ($_GET['collection_status']):
+                        case 'approved': ?>
+                            <h2>Tu pago ha sido aprobado</h2>
+                            <div class="width:60%">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th>collection_id</th>
+                                            <td><?php echo $_GET['collection_id'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>collection_status</th>
+                                            <td><?php echo $_GET['collection_status'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>external_reference</th>
+                                            <td><?php echo $_GET['external_reference'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>payment_type</th>
+                                            <td><?php echo $_GET['payment_type'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>preference_id</th>
+                                            <td><?php echo $_GET['preference_id'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>site_id</th>
+                                            <td><?php echo $_GET['site_id'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>processing_mode</th>
+                                            <td><?php echo $_GET['processing_mode'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>merchant_account_id</th>
+                                            <td><?php echo $_GET['merchant_account_id'] ?></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <?php var_dump($_GET) ?>
+
+                            </div>
+                            <?php break; ?>
+                        <?php
+                        case 'pending': ?>
+                            <h2>Tu pago está pendiente</h2>
+                            <?php break; ?>
+                        <?php
+                        case 'failure': ?>
+                            <h2>Ups... algo pasó con tu pago</h2>
+                            <?php break; ?>
+                    <?php endswitch; ?>
+                <?php } ?>
             </div>
 
             <div class="as-search-results as-filter-open as-category-landing as-desktop" id="as-search-results">
