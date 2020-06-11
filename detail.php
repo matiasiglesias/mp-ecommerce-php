@@ -507,9 +507,9 @@
 
     // Back URLs
     $preference->back_urls = [
-        "success" => $SERVER_URL . "/success.php",
-        "failure" => $SERVER_URL . "/failure.php",
-        "pending" => $SERVER_URL . "/pending.php"
+        "success" => $SERVER_URL . "/success",
+        "failure" => $SERVER_URL . "/failure",
+        "pending" => $SERVER_URL . "/pending"
     ];
 
     $preference->auto_return = "all";
@@ -613,8 +613,10 @@
                                         </h3>
                                     </div>
 
-                                    <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js" data-preference-id="<?php echo $preference->id; ?>" data-button-label="Pagar la compra">
-                                    </script>
+                                    <form action="/index.php" method="GET">
+                                        <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js" data-preference-id="<?php echo $preference->id; ?>" data-button-label="Pagar la compra">
+                                        </script>
+                                    </form>
 
                                 </div>
                             </div>
