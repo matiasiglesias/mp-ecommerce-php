@@ -476,7 +476,7 @@
             </div>
 
             <div id="result">
-                <?php die(var_dump($_GET)) ?>
+                <?php var_dump($_GET) ?>
 
                 <?php if (isset($_GET['collection_status'])) { ?>
                     <?php switch ($_GET['collection_status']):
