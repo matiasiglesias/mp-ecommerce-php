@@ -474,13 +474,13 @@
     $item->picture_url = $SERVER_URL . '/' . $_POST['img'];
     $item->id = 1234; // Fixed
     $item->currency_id = 'ARS'; // Fixed
-    $item->description = "​Dispositivo móvil de Tienda e-commerce​"; // Fixed
-    $item->external_reference = "miglesias@guanacosoftware.com.ar"; // Fixed
+    $item->description = "​Dispositivo móvil de Tienda e-commerce"; // Fixed
 
     // Creo el Payer
     /** @var MercadoPago\Payer $payer */
     $payer = new MercadoPago\Payer();
-    $payer->name = "Lalo Landa";
+    $payer->name = "Lalo";
+    $payer->surname = "Landa";
     $payer->email = "test_user_63274575@testuser.com";
     $payer->phone = [
         "area_code" =>  "11",
@@ -515,6 +515,7 @@
 
     $preference->auto_return = "approved";
 
+    $preference->external_reference = "miglesias@guanacosoftware.com.ar"; // Fixed
     $preference->items = [$item];
     $preference->payer = $payer;
     $preference->payment_methods = $paymentMethod;
